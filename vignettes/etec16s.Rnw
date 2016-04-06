@@ -1,0 +1,75 @@
+%\VignetteIndexEntry{etec16s}
+%\VignetteKeywords{ExperimentData, 16SExpressionData,metagenomeSeq}
+%\VignetteDepends{metagenomeSeq,etec16s}
+%\VignettePackage{etec16s}
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[authoryear,round]{natbib}
+\textwidth=6.2in
+\textheight=8.5in
+%\parskip=.3cm
+\oddsidemargin=.1in
+\evensidemargin=.1in
+\headheight=-.3in
+\newcommand{\scscst}{\scriptscriptstyle}
+\newcommand{\scst}{\scriptstyle}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rpackage}[1]{{\textit{#1}}}
+\begin{document}
+\title{ETEC 16S dataset}
+
+\maketitle
+This data package contains the data used in the analyses found in "Individual-specific changes in the human gut microbiota after challenge with enterotoxigenic Escherichia coli and subsequent ciprofloxacin treatment". 
+DNA was amplified using 'universal' primers targeting the V1-V2 region of the 16S rRNA gene (small subunit of the ribosome) in bacteria - 338R (5'- CATGCTGCCTCCCGTAGGAGT -3') and 27F (5'- AGAGTTTGATCCTGGCTCAG -3').  Both forward and reverse primers had a 5 prime portion specific for use with 454 GS-FLX Titanium sequencing technology and the forward primers contained a barcode between the Titanium and gene specific region, so that samples could be pooled to a multiplex level of 132 samples per instrument run. 
+
+16S rRNA gene sequencing was performed for all available stool samples.  After sequencing, 124 samples passed quality controls, corresponding to data from 5 volunteers with the most unambiguous cases of diarrhea during the study (54 samples) and 7 volunteers without diarrheal symptoms who had the most stool samples (78 samples). The raw data have been submitted to NCBI under project ID: PRJNA298336.
+
+Data is stored as an \Robject{MRexperiment}-class object. The count matrix was generated using DNAclust (http://dnaclust.sourceforge.net/). For more details please refer to the paper.
+
+The help file \verb+?etec16s+ describes the example dataset.
+
+\section{The Data}
+We start by loading the library and the data.
+
+<<loading_dataset>>=
+suppressMessages(library(metagenomeSeq))
+library(etec16s)
+data(etec16s)
+@
+
+This will load the \verb+etec16s+ object of class \Robject{MRexperiment}.
+As described in the \verb+metagenomeSeq+ vignette, \Rfunction{print} (or \Rfunction{show}) will display summary information. 
+
+<<examining_data>>=
+etec16s
+@
+
+The data in \verb+etec16s+ is the substrate for the analysis described in 
+"Individual-specific changes in the human gut microbiota after challenge with enterotoxigenic Escherichia coli and subsequent ciprofloxacin treatment". 
+Included in the \Robject{MRexperiment} object are the counts, phenotype and feature information. 
+
+The phenotype information can be accessed with the \verb+phenoData+ and \verb+pData+ methods:
+<<pheno_data>>=
+phenoData(etec16s)
+head(pData(etec16s))
+@
+
+The feature information including cluster representative sequence can be accessed with the \verb+featureData+ and \verb+fData+ methods:
+<<feature_data>>=
+featureData(etec16s)
+head(fData(etec16s))
+@
+
+The raw or normalized counts matrix can be accessed with the \verb+MRcounts+ function:
+<<counts>>=
+head(MRcounts(etec16s[,1:10]))
+@
+
+Using this class, the object can be easily subsetted, for example:
+<<subsetting>>=
+etec16s_day84 = etec16s[,which(pData(etec16s)$Day == 84)]
+etec16s_day84
+@
+\end{document}
