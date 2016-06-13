@@ -1,5 +1,5 @@
 citEntry(entry = "Article",
-         "author" = "Mihai Pop* and Joseph N. Paulson* and Subhra Chakraborty* and Irina Astrovskaya and Brianna Lindsay and Shan Li and Hector Corrada Bravo and Clayton Harro and Julian Parkhill and Alan W. Walker and Richard I. Walker and David A. Sack and O. Colin Stine",
+         "author" = "Mihai Pop and Joseph N. Paulson and Subhra Chakraborty and Irina Astrovskaya and Brianna Lindsay and Shan Li and Hector Corrada Bravo and Clayton Harro and Julian Parkhill and Alan W. Walker and Richard I. Walker and David A. Sack and O. Colin Stine",
          "title" = "Individual-specific changes in the human gut microbiota after challenge with enterotoxigenic Escherichia coli and subsequent ciprofloxacin treatment",
          journal = "BMC Genomics",
          volume = "17",
@@ -8,5 +8,5 @@ citEntry(entry = "Article",
          pages = "1--11",
          doi="10.1186/s12864-016-2777-0",
 	 url="http://dx.doi.org/10.1186/s12864-016-2777-0",
-         textVersion = "Pop, M.*, Paulson, JN.*, Chakraborty, S.*, et. al.: Individual-specific changes in the human gut microbiota after challenge with enterotoxigenic Escherichia coli and subsequent ciprofloxacin treatment. BMC Genomics 2016 17:440 http://dx.doi.org/10.1186/s12864-016-2777-0"
+         textVersion = "Pop, M., Paulson, JN., Chakraborty, S., et. al.: Individual-specific changes in the human gut microbiota after challenge with enterotoxigenic Escherichia coli and subsequent ciprofloxacin treatment. BMC Genomics 2016 17:440 http://dx.doi.org/10.1186/s12864-016-2777-0"
 )
